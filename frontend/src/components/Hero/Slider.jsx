@@ -30,8 +30,7 @@ function Slider() {
         }
     ]
     return (
-        // autoplay={{ delay: 2000 }}
-        <Swiper slidesPerView={1} effect={'fade'} loop={true} pagination={{ clickable: true }} navigation={true} modules={[Pagination, Autoplay, Navigation, EffectFade]} >
+        <Swiper slidesPerView={1} autoplay={{ delay: 2000 }} effect={'fade'} loop={true} pagination={{ clickable: true }} navigation={true} modules={[Pagination, Autoplay, Navigation, EffectFade]} >
             {
                 sliderData.map(slide =>
                     <SwiperSlide key={slide.id}>

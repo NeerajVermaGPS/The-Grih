@@ -7,7 +7,7 @@ function Hero() {
   const { ref: slidingComponent2, className: slidingClass2 } = useInViewAnimation("slide-in-right");
   return (
     <section className='full-hw hero center'>
-      <video autoPlay={false} muted={true} loop={true} playsInline={true} preload="none" className="full-hw hero-bg" poster="/assets/images/fallback.jpg">
+      <video autoPlay={true} muted={true} loop={true} playsInline={true} preload="none" className="full-hw hero-bg" poster="/assets/images/fallback.jpg">
         <source src="/assets/videos/hero-bg.mp4" type="video/mp4" />
       </video>
       <div className="full-hw center hero-content">
