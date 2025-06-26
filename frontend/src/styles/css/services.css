@@ -1,0 +1,38 @@
+.service-section {
+  padding: 70px 30px;
+}
+.service-section-grid {
+  display: flex;
+  gap: 20px;
+  max-width: 1000px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.service-section-card {
+  background: #ffffff;
+  padding: 16px 12px;
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+.service-section-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.service-section-card-icon {
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+.service-section-card h3 {
+  font-size: 20px;
+  color: #1a2238;
+  margin-bottom: 0.75rem;
+}
+.service-section-card p {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+}
