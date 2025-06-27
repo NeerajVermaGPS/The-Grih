@@ -1,11 +1,21 @@
 {
-  "name": "assignment-backend",
+  "name": "thegrih-backend",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Neeraj Verma",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "start:dev": "nodemon app.js"
   },
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.6.0",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "mongoose": "^8.16.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
