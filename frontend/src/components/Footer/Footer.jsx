@@ -1,6 +1,32 @@
-import React from 'react'
+import axios from 'axios';
+import { useState } from 'react';
 
 function Footer() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ type: '', message: '' });
+
+    if (!email) {
+      setStatus({ type: 'error', message: 'Email is required' });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await axios.post(`https://thegrih.onrender.com/newsletter/subscribe/`, { email });
+      setStatus({ type: 'success', message: res.data.message });
+      setEmail('');
+    } catch (err) {
+      const message = err.response?.data?.message || err.response?.data?.errors?.[0]?.msg || 'Something went wrong';
+      setStatus({ type: 'error', message });
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <footer className='full-w footer column'>
       <div className="footer-top d-flex flex-wrap">
@@ -31,10 +57,15 @@ function Footer() {
         <div className='footer-top-div column footer-top-div4'>
             <h6>Newsletter</h6>
             <div className='column'>
-                <form>
-                    <input type="text" placeholder='Enter your email'/>
-                    <button type='submit'>Subscribe</button>
+                <form onSubmit={handleSubmit} className={loading ? "submitting-form" : ""}>
+                    <input type="text" placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                    <button type='submit' className='center' disabled={loading}>{loading && <img src="/assets/icons/loader.gif" alt="loading" style={{marginRight: "5px", height: "18px"}} />}{loading ? 'Subscribing...' : 'Subscribe'}</button>
                 </form>
+                {status.message && (
+                  <div class="d-flex align-items-center mt-2 fadein-effect">
+                    <img src={`/assets/icons/${status.type}.svg`} style={{width: "15px", marginRight: "5px"}} alt={status.type} /><p className={`nl-message nl-${status.type} m-0`}>{status.message}</p>
+                  </div>
+                )}
             </div>
         </div>
       </div>

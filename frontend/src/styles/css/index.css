@@ -300,12 +300,14 @@ h1 {
   width: 100%;
   gap: 10px;
   font-size: 14px;
+  transition: 0.3s;
 }
 .footer form input, .footer form button {
   border: none;
   padding: 5px 2px;
   background-color: transparent;
   border-bottom: 1.5px solid black;
+  transition: 0.3s;
   outline: none;
 }
 .footer form input {
@@ -314,6 +316,28 @@ h1 {
 .footer form button {
   text-transform: uppercase;
   font-weight: bold;
+}
+.footer .submitting-form {
+  gap: 0;
+}
+.footer .submitting-form input {
+  width: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.footer .submitting-form button {
+  width: 100%;
+}
+.footer .nl-message {
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: start;
+}
+.footer .nl-success {
+  color: green;
+}
+.footer .nl-error {
+  color: crimson;
 }
 
 @media screen and (max-width: 600px) {
